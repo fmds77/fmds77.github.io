@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LibCal widgets</title>
+</head>
+
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://api3.libcal.com/js/equipment.min.js"></script>
+<script>
+jQuery(function(){
+   jQuery("#eq_9549").LibCalEquipmentBooking({iid: 4638, gid: 9549, eid: 0, width: 560, height: 680});
+});
+</script>
+<!-- Place the following link anywhere in your page. Make sure the id "eq_9549" matches with the above code: jQuery("#eq_9549")  //-->
+<button id="eq_9549" href="#">Liverpool Group Study Room Booking</button>
+<!-- Below is optional button styling  //-->
+<style>
+#eq_9549 {
+  background: #ED0033;
+  border: 1px solid #ED0033;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font: 14px Arial, Helvetica, Verdana;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+#eq_9549:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+</body>
+</html>
