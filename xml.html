@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        table
+        {
+            width: 100%;
+            font: 17px Calibri;
+        }
+        table, th, td
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <div id="xmldata"></div>
+
+<script language="javaScript" type="text/javascript">
+
+function displayData(){
+    var xmlEl = docObj.getElementsByTagName("location");
+	var table = document.createElement("table");
+	table.border = "1";
+	table.style.position = "absolute";
+	table.style.top = "200px";
+	table.style.left = "25%";
+	var tbody = document.createElement("tbody");
+
+// Append the body to the table
+table.appendChild(tbody);
+var row = document.createElement("tr");
+row.style.backgroundColor = "#ccc";
+
+//Create Header and append to row
+for (colHead = 0; colHead < xmlEl[0].childNodes.length; colHead++){
+	if (xmlEl[0].childNodes[colHead].nodeType !=1) {
+		continue;
+	}
+	var tableHead = document.createElement("th");
+	var colName = document.createTextNode(xmlEl[0].childNodes[colHead].nodeName);
+	tableHead.appendChild(colName);
+	row.appendChild(tableHead);
+}
+
+// Append the row to the body
+tbody.appendChild(row);
+
+// Create table rows
+for (i=0; i < xmlEl.length; i++){
+	var row = document.createElement("tr");
+	// Create the row/td elements
+	for (j=0; j < xmlEl[i].childNodes.length; j++){
+		if (xmlEl[i].childNodes[j].nodeType != 1){
+			continue;
+		}
+
+		//insert the actual text/data from the XML document.
+		var td = document.createElement("td");
+		var xmlData = document.createTextNode(xmlEl[i].childNodes[j].firstChild.nodeValue);
+		td.appendChild(xmlData);
+		row.appendChild(td);
+	}
+	tbody.appendChild(row);
+}
+document.getElementById("xmldata").appendChild(table);
+}
+
+function getXML(){
+	  if (typeof document.implementation.createDocument != "undefined") {
+		 docObj = document.implementation.createDocument("", "", null);
+		 docObj.onload = displayData;
+	  }
+	  else if (window.ActiveXObject) {
+	     docObj = new ActiveXObject("Microsoft.XMLDOM");
+		 docObj.onreadystatechange = function () {
+			if (docObj.readState == 4) displayData()
+		 };
+	  }
+	  docObj.load("https://api3.libcal.com/api_hours_today.php?iid=4638&lid=0&format=xml");
+}
+window.onload = getXML;
+</script>
+
+</body>
+</html>
+</html>
