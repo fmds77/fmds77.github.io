@@ -1,0 +1,90 @@
+/* custom css for DCAT - 2024 */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-color: #f1f1f1;*/
+    font-family: "PT Sans", Helvetica, Segoe UI, sans-serif;
+}
+
+.container {
+  min-width: 300px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+header {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(121,211,3,1) 0%, rgba(255,255,255,1) 75%) !important;
+    background-repeat: no-repeat;
+    width: 100% !important;
+}
+
+.form {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {text-align: center; color: #5d9802; margin-top: 0px;}
+
+.form-group {margin-bottom: 20px;}
+
+label {font-weight: 500;}
+
+input[type="text"], button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+    border-radius: 1px;
+    font-family: "PT Sans", Helvetica, Segoe UI, sans-serif;
+}
+
+button {
+  background-color: #04AA6D;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+button:hover {
+  background-color: #5d9802;
+}
+
+:focus {
+  outline: none;
+    background-color: #fbfde0;
+  box-shadow: 0 0 0 2px rgba(4, 170, 109, 100%);
+}
+
+.instruction {
+    display: block;
+    color: #a6a6a6;
+    font-size: 0.7rem;
+    margin: 2px 10px 10px 2px;
+}
+
+html {
+  --s: 20px; /* control the size */
+  
+  --c:#0000 75%,#f1f1f1 0;
+  --g1:conic-gradient(at calc(200%/3) 10%,var(--c));
+  --g2:conic-gradient(at 10% calc(200%/3),var(--c));
+  background:
+    var(--g1), var(--g2),
+    var(--g1) var(--s) var(--s),
+    var(--g2) var(--s) var(--s),
+    var(--g1) calc(2*var(--s)) calc(2*var(--s)),
+    var(--g2) calc(2*var(--s)) calc(2*var(--s)) #eee;
+  background-size: calc(3*var(--s)) calc(3*var(--s));
+}
